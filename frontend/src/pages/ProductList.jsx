@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import useCartStore from '../store/cartStore';
 import { useAuth } from '../context/AuthContext';
 import SkeletonCard from '../components/SkeletonCard';
+import { getMediaUrl } from '../utils/getMediaUrl';
 
   const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -161,12 +162,8 @@ const activeCategoryName = categories.find(
             >
               {product.image ? (
                 <img
-                  src={
-                    product.image.startsWith('http')
-                      ? product.image
-                      : `http://127.0.0.1:8000${product.image}`
-                  }
-                  alt={product.name}
+  src={getMediaUrl(product.image)}
+  alt={product.name}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   onError={(e) => {
                     e.target.onerror = null;

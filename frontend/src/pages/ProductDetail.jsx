@@ -4,6 +4,7 @@ import api from '../api/axios';
 import toast from 'react-hot-toast';
 import useCartStore from '../store/cartStore';
 import { useAuth } from '../context/AuthContext';
+import { getMediaUrl } from '../utils/getMediaUrl';
 
 const ProductDetail = () => {
   const { slug } = useParams();
@@ -108,12 +109,8 @@ const ProductDetail = () => {
       <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
         {product.image ? (
           <img
-            src={
-              product.image.startsWith('http')
-                ? product.image
-                : `http://127.0.0.1:8000${product.image}`
-            }
-            alt={product.name}
+  src={getMediaUrl(product.image)}
+  alt={product.name}
             className="w-full md:w-1/2 h-80 object-cover"
             onError={(e) => {
               e.target.onerror = null;

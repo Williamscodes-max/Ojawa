@@ -81,21 +81,6 @@ const Login = () => {
           </button>
         </form>
 
-        {/* Demo Credentials */}
-<div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-xl">
-  <p className="text-sm font-bold text-yellow-700 mb-2">🧪 Demo Credentials</p>
-  <div className="flex flex-col gap-1 text-sm text-yellow-600">
-    <p>📧 Email: <span className="font-mono font-bold">demo@ojawa.com</span></p>
-    <p>🔑 Password: <span className="font-mono font-bold">Demo1234!</span></p>
-  </div>
-  <button
-    type="button"
-    onClick={() => setFormData({ email: 'demo@ojawa.com', password: 'Demo1234!' })}
-    className="mt-3 w-full bg-yellow-400 text-yellow-900 rounded-lg py-2 text-sm font-semibold hover:bg-yellow-500 transition"
-  >
-    ⚡ Fill Demo Credentials
-  </button>
-</div>
 
 <p className="text-center text-gray-500 mt-4 text-sm">
   Don't have an account?{' '}

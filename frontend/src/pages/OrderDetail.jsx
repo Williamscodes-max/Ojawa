@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import api from '../api/axios';
 import toast from 'react-hot-toast';
+import { getMediaUrl } from '../utils/getMediaUrl';
 
 const statusColors = {
   pending: 'bg-yellow-100 text-yellow-700',
@@ -122,12 +123,8 @@ const OrderDetail = () => {
     <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-red-50">
       {item.product?.image ? (
         <img
-          src={
-            item.product.image.startsWith('http')
-              ? item.product.image
-              : `http://127.0.0.1:8000${item.product.image}`
-          }
-          alt={item.product_name}
+  src={getMediaUrl(item.product.image)}
+  alt={item.product_name}
           className="w-full h-full object-cover"
           onError={(e) => {
             e.target.onerror = null;

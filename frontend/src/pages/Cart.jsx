@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import useCartStore from '../store/cartStore';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
+import { getMediaUrl } from '../utils/getMediaUrl';
 
 const Cart = () => {
   const { cart, fetchCart, removeFromCart, updateQuantity, loading } = useCartStore();
@@ -65,12 +66,8 @@ const Cart = () => {
           {cart.items.map((item) => (
             <div key={item.id} className="bg-white rounded-xl shadow p-4 flex gap-4 items-center">
               {item.product.image ? (
-                <img
-                 src={
-            item.product.image.startsWith('http')
-              ? item.product.image
-              : `http://127.0.0.1:8000${item.product.image}`
-          }
+               <img
+          src={getMediaUrl(item.product.image)}
           onError={(e) => {
             e.target.onerror = null;
             e.target.src = 'https://placehold.co/100x100?text=Oja';

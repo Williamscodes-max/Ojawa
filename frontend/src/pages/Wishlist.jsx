@@ -4,6 +4,7 @@ import api from '../api/axios';
 import { useAuth } from '../context/AuthContext';
 import useCartStore from '../store/cartStore';
 import toast from 'react-hot-toast';
+import { getMediaUrl } from '../utils/getMediaUrl';
 
 const Wishlist = () => {
   const { user } = useAuth();
@@ -72,7 +73,7 @@ const Wishlist = () => {
             <div key={id} className="bg-white rounded-xl shadow overflow-hidden">
               {product.image ? (
                 <img
-                  src={product.image.startsWith('http') ? product.image : `http://127.0.0.1:8000${product.image}`}
+                  src={getMediaUrl(product.image)}
                   alt={product.name}
                   className="w-full h-48 object-cover"
                   onError={(e) => { e.target.src = 'https://placehold.co/400x300?text=Oja+Market'; }}

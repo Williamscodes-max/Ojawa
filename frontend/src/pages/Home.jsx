@@ -6,12 +6,13 @@ import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 import heroImage from '../assets/hero.jpg';
 import SkeletonCard from '../components/SkeletonCard';
+import { getMediaUrl } from '../utils/getMediaUrl';
 
 const ProductCard = ({ product, onAddToCart, onWishlistToggle, wishlistedIds }) => (
   <div className="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden group flex-shrink-0 w-56">
     {product.image ? (
       <img
-        src={product.image.startsWith('http') ? product.image : `http://127.0.0.1:8000${product.image}`}
+        src={getMediaUrl(product.image)}
         alt={product.name}
         className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
         onError={(e) => { e.target.src = 'https://placehold.co/400x300?text=Oja+Market'; }}
