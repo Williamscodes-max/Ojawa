@@ -1,3 +1,5 @@
+
+import os
 import uuid
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
@@ -6,6 +8,7 @@ from .models import Order, OrderItem
 from .serializers import OrderSerializer, CheckoutSerializer
 from .paystack import initialize_payment, verify_payment
 from apps.cart.models import Cart
+
 
 
 class CheckoutView(APIView):
@@ -52,7 +55,8 @@ class CheckoutView(APIView):
 
         # Initialize Paystack payment
         reference = f"OJA-{uuid.uuid4().hex[:10].upper()}"
-        callback_url = f"http://localhost:5173/payment/verify?reference={reference}"
+        frontend_url = os.getenv('FRONTEND_URL', 'http://localhost:5173')
+        callback_url = f"{frontend_url}/payment/verify?reference={reference}"
 
         payment = initialize_payment(
             email=order.email,
