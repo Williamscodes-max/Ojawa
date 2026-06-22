@@ -206,7 +206,7 @@ const Navbar = () => {
 
           <Link to="/products" onClick={closeMenu} style={linkStyle}> Products</Link>
           <Link to="/cart" onClick={closeMenu} style={linkStyle}>
-            🛒 Cart {itemCount > 0 && (
+             Cart {itemCount > 0 && (
               <span style={{
                 background: '#e94560',
                 borderRadius: '50%',
@@ -238,7 +238,7 @@ const Navbar = () => {
                   fontSize: '0.95rem',
                 }}
               >
-                🚪 Logout
+                 Logout
               </button>
             </>
           ) : (
