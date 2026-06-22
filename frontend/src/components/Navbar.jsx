@@ -204,7 +204,7 @@ const Navbar = () => {
             </button>
           </form>
 
-          <Link to="/products" onClick={closeMenu} style={linkStyle}>🛍️ Products</Link>
+          <Link to="/products" onClick={closeMenu} style={linkStyle}> Products</Link>
           <Link to="/cart" onClick={closeMenu} style={linkStyle}>
             🛒 Cart {itemCount > 0 && (
               <span style={{
@@ -221,9 +221,9 @@ const Navbar = () => {
 
           {user ? (
             <>
-              <Link to="/wishlist" onClick={closeMenu} style={linkStyle}>❤️ Wishlist</Link>
-              <Link to="/orders" onClick={closeMenu} style={linkStyle}>📦 Orders</Link>
-              <Link to="/profile" onClick={closeMenu} style={linkStyle}>👤 Profile</Link>
+              <Link to="/wishlist" onClick={closeMenu} style={linkStyle}> Wishlist</Link>
+              <Link to="/orders" onClick={closeMenu} style={linkStyle}> Orders</Link>
+              <Link to="/profile" onClick={closeMenu} style={linkStyle}> Profile</Link>
               <button
                 onClick={handleLogout}
                 style={{
@@ -243,7 +243,7 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link to="/login" onClick={closeMenu} style={linkStyle}>🔑 Login</Link>
+              <Link to="/login" onClick={closeMenu} style={linkStyle}> Login</Link>
               <Link
                 to="/register"
                 onClick={closeMenu}
